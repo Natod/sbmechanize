@@ -14,7 +14,7 @@ local offset = {
 function init()
   object.setInteractive(false)
   itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1)
-  transferCooldown = config.getParameter("itemTransferTickCooldown", 0)
+  transferCooldown = config.getParameter("itemTransferTickCooldown", 1)
   _counter = 0
   --itemMaxTransferCount = 5
   --transferCooldown = 50 
@@ -37,7 +37,6 @@ function update(dt)
         lenFromItems = lenFromItems + 1 
         fromSlotOffset = tonumber(i) - 1
       end
-      sb.logWarn(sb.print(fromSlotOffset))
       --make sure there are items in fromObj and that toObj is a container
       if lenFromItems > 0 and world.containerAvailable(toObject, {name = "copperbar"}) then
         --fromSlotOffset = fromItems[1]

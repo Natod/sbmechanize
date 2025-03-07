@@ -1,0 +1,38 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "gun" : {
+        "priority" : 1,
+        "default" : "idle",
+        "states" : {
+          "idle" : {}
+        }
+      }
+    },
+    "parts" : {
+      "gun" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [0.075, 0.2],
+          "transformationGroups" : ["rotate"],
+          "zLevel" : -20
+        },
+        "partStates" : {
+          "gun" : {
+            "idle" : {
+              "properties" : {
+                "image" : "sbmcnwrench1.png"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "transformationGroups" : {
+    "rotate" : {
+      "interpolated" : true
+    }
+  }
+}

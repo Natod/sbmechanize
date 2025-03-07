@@ -1,0 +1,21 @@
+{
+  "itemName" : "sbmcnwrench1",
+  "price": 1500,
+  "maxStack" : 1,
+  "rarity" : "Essential",
+  "description" : "[LMB] to Wrench",
+  "shortdescription" : "Mechanical Wrench",
+  "tooltipKind" : "base",
+  "category" : "grenadeLauncher",
+  "twoHanded" : true,
+  "itemTags" : [ "sbmcnwrench", "sbmcn" ],
+
+  "inventoryIcon" : "sbmcnwrench1.png",
+  "animation" : "sbmcnwrench1.animation",
+  "animationParts" : {
+    "gun" : "sbmcnwrench1.png"
+  },
+  "animationCustom" : { },
+  "scripts" : [ "sbmcnwrench.lua" ],
+  "fireOffset" : [0.5, 0]
+}

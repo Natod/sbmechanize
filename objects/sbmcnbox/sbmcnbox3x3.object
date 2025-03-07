@@ -26,7 +26,7 @@
   "slotCount" : 9,
   "storageDimensions" : [3,3],
   "frameCooldown" : 5,
-  "autoCloseCooldown" : 3600,
+  "autoCloseCooldown" : 3600
 
-  "scripts" : [ "sbmcnbox.lua" ]
+  //"scripts" : [ "sbmcnbox.lua" ]
 }

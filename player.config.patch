@@ -1,0 +1,5 @@
+[  
+
+  { "op" : "add", "path" : "/deploymentConfig/scripts/-", "value" : "/scripts/smcnplayeranimator.lua" }
+
+]
