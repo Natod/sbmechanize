@@ -16,7 +16,6 @@ local toPositionOffset
 
 function init()
   object.setInteractive(false)
-  animator.setAnimationState("switchState", "w.e")
   itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1)
   transferCooldown = config.getParameter("itemTransferTickCooldown", 1)
   _counter = 0
@@ -24,6 +23,7 @@ function init()
   storage.toIndex = storage.toIndex or 3
   fromPositionOffset = offset[storage.fromIndex]
   toPositionOffset = offset[storage.toIndex]
+  animator.setAnimationState("switchState", dirs[storage.fromIndex] .. "." .. dirs[storage.toIndex])
   --itemMaxTransferCount = 5
   --transferCooldown = 50
   

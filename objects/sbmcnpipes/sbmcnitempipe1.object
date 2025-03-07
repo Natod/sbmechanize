@@ -3,19 +3,19 @@
   "colonyTags" : [],
   "rarity" : "Common",
   "description" : "A small logistical item pipe.",
-  "shortdescription" : "Itemduct 1",
+  "shortdescription" : "Single-IO Item Pipe",
   "race" : "generic",
   "category" : "storage",
   "price" : 20,
   "itemTransferCount" : 1,
-  "itemTransferTickCooldown" : 1,
+  "itemTransferTickCooldown" : 0,
   //"objectType" : "container",
   "animation" : "sbmcnitempipe1.animation",
   "animationParts" : {
     "switchState" : "singleIO/w.e.png"
   },
 
-  "inventoryIcon" : "singleIO/w.e.png",
+  "inventoryIcon" : "sbmcnitempipe1icon.png",
   "orientations" : [
     {
       "image" : "singleIO/w.e.png",
@@ -26,7 +26,7 @@
     }
   ],
 
-  //"builder" : "/objects/pipes/buildsbmcnitempipe.lua",
+  "builder" : "/objects/sbmcnpipes/buildsbmcnitempipe.lua",
   "scripts" : [ "sbmcnitempipe.lua" ]
 
 }
