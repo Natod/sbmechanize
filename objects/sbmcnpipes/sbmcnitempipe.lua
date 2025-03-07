@@ -5,16 +5,18 @@ local itemMaxTransferCount
 local transferCooldown
 local _counter
 local offset = {
-  {-1,0}, --left
-  {0,1},  --up
-  {1,0},  --right
-  {0,-1}  --down
+  {-1,0}, --left  / w
+  {0,1},  --up    / n
+  {1,0},  --right / e
+  {0,-1}  --down  / s
 }
+local dirs = { "w", "n", "e", "s" }
 local fromPositionOffset
 local toPositionOffset
 
 function init()
   object.setInteractive(false)
+  animator.setAnimationState("switchState", "w.e")
   itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1)
   transferCooldown = config.getParameter("itemTransferTickCooldown", 1)
   _counter = 0
@@ -24,17 +26,12 @@ function init()
   toPositionOffset = offset[storage.toIndex]
   --itemMaxTransferCount = 5
   --transferCooldown = 50
-  object.setConfigParameter("orientations", {
-    {
-      image = "singleIO/w.n.png",
-      imagePosition = {0,0},
-      spaceScan = 0.1,
-      anchors = {}
-    }
-  })
+  
 
   message.setHandler("sbmcnPipeWrench", function(messageName, isLocalEntity, input, shift)
-
+    -- TODO - make it spawn particles that have random position and starting velocity but move up and get slower
+    local _fromDir = nil
+    local _toDir = nil
     if input == "primary" and not shift then
       --cycle thru from offsets
       storage.fromIndex = storage.fromIndex % #offset + 1
@@ -56,6 +53,10 @@ function init()
     elseif input == "alt" and shift then
       --
     end
+    _fromDir = dirs[storage.fromIndex]
+    _toDir = dirs[storage.toIndex]
+    animator.setAnimationState("switchState", _fromDir .. "." .. _toDir )
+
   end)
 
 end

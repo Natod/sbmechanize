@@ -1,0 +1,96 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "switchState" : {
+        "default" : "w.e",
+        "states" : {
+          "e.n" : {},
+          "e.s" : {},
+          "e.w" : {},
+          "n.e" : {},
+          "n.s" : {},
+          "n.w" : {},
+          "s.e" : {},
+          "s.n" : {},
+          "s.w" : {},
+          "w.e" : {},
+          "w.n" : {},
+          "w.s" : {}
+        }
+      }
+    },
+
+    "parts" : {
+      "switch" : {
+        "properties" : {
+          "centered" : false
+        },
+
+        "partStates" : {
+          "switchState" : {
+            "e.n" : {
+              "properties" : {
+                "image" : "singleIO/e.n.png"
+              }
+            },
+            "e.s" : {
+              "properties" : {
+                "image" : "singleIO/e.s.png"
+              }
+            },
+            "e.w" : {
+              "properties" : {
+                "image" : "singleIO/w.e.png?flipx"
+              }
+            },
+            "n.e" : {
+              "properties" : {
+                "image" : "singleIO/n.e.png"
+              }
+            },
+            "n.s" : {
+              "properties" : {
+                "image" : "singleIO/n.s.png"
+              }
+            },
+            "n.w" : {
+              "properties" : {
+                "image" : "singleIO/n.w.png"
+              }
+            },
+            "s.e" : {
+              "properties" : {
+                "image" : "singleIO/s.e.png"
+              }
+            },
+            "s.n" : {
+              "properties" : {
+                "image" : "singleIO/n.s.png?flipy"
+              }
+            },
+            "s.w" : {
+              "properties" : {
+                "image" : "singleIO/s.w.png"
+              }
+            },
+            "w.e" : {
+              "properties" : {
+                "image" : "singleIO/w.e.png"
+              }
+            },
+            "w.n" : {
+              "properties" : {
+                "image" : "singleIO/w.n.png"
+              }
+            },
+            "w.s" : {
+              "properties" : {
+                "image" : "singleIO/w.s.png"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

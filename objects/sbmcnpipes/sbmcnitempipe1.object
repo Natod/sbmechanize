@@ -10,6 +10,10 @@
   "itemTransferCount" : 1,
   "itemTransferTickCooldown" : 1,
   //"objectType" : "container",
+  "animation" : "sbmcnitempipe1.animation",
+  "animationParts" : {
+    "switchState" : "singleIO/w.e.png"
+  },
 
   "inventoryIcon" : "singleIO/w.e.png",
   "orientations" : [
