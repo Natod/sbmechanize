@@ -17,7 +17,7 @@ function init()
   transferCooldown = config.getParameter("itemTransferTickCooldown", 0)
   _counter = 0
   --itemMaxTransferCount = 5
-  --transferCooldown = 50 --
+  --transferCooldown = 50 
 end
 
 function update(dt)
