@@ -1,0 +1,32 @@
+{
+  "objectName" : "sbmcnbox3x3",
+  "colonyTags" : ["storage"],
+  "rarity" : "Common",
+  "description" : "A small 3x3 logistical container.",
+  "shortdescription" : "Box 3x3",
+  "race" : "generic",
+  "category" : "storage",
+  "price" : 100,
+  "objectType" : "container",
+
+  "inventoryIcon" : "sbmcnbox2x2.png",
+  "orientations" : [
+    {
+      "dualImage" : "sbmcnbox2x2.png",
+      "imagePosition" : [-8, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [  ]
+    }
+  ],
+
+  "uiConfig" : "/interface/sbmcnbox/3x3.config",
+
+  //"openSounds" : [ "/sfx/cinematics/ship_upgrade/captain_gripe.ogg" ],
+  "slotCount" : 9,
+  "storageDimensions" : [3,3],
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600,
+
+  "scripts" : [ "sbmcnbox.lua" ]
+}
