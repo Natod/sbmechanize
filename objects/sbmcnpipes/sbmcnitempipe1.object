@@ -11,10 +11,10 @@
   "itemTransferTickCooldown" : 1,
   //"objectType" : "container",
 
-  "inventoryIcon" : "sbmcnitempipe1.png",
+  "inventoryIcon" : "singleIO/w.e.png",
   "orientations" : [
     {
-      "image" : "sbmcnitempipe1.png",
+      "image" : "singleIO/w.e.png",
       "imagePosition" : [0, 0],
 
       "spaceScan" : 0.1,

@@ -23,12 +23,19 @@ function update(dt, fireMode, shiftHeld)
   
   updateAim()
   if fireMode == "primary" and fireMode ~= "alt" and not shiftHeld and not inUse then
+    world.sendEntityMessage(world.objectAt(activeItem.ownerAimPosition()), "sbmcnPipeWrench", "primary", false)
     inUse = true
-    fire(dt)
+  end
+  
+  if fireMode == "alt" and fireMode ~= "primary" and not shiftHeld and not inUse then
+    world.sendEntityMessage(world.objectAt(activeItem.ownerAimPosition()), "sbmcnPipeWrench", "alt", false)
+    inUse = true
   end
 
   if fireMode ~= "primary" and fireMode ~= "alt" then
     inUse = false
+  else
+    inUse = true
   end
   
 end
