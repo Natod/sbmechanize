@@ -16,6 +16,8 @@ local toPositionOffset
 
 function init()
   object.setInteractive(false)
+  animator.setParticleEmitterBurstCount("bluePoof", 10)
+  animator.setParticleEmitterBurstCount("redPoof", 10)
   itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1)
   transferCooldown = config.getParameter("itemTransferTickCooldown", 1)
   _counter = 0
@@ -39,6 +41,7 @@ function init()
         storage.fromIndex = storage.fromIndex % #offset + 1
       end
       fromPositionOffset = offset[storage.fromIndex]
+      animator.burstParticleEmitter("redPoof")
 
     elseif input == "alt" and not shift then
       --cycle thru to offsets
@@ -47,6 +50,7 @@ function init()
         storage.toIndex = storage.toIndex % #offset + 1
       end
       toPositionOffset = offset[storage.toIndex]
+      animator.burstParticleEmitter("bluePoof")
 
     elseif input == "primary" and shift then
       --
