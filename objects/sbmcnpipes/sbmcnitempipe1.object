@@ -19,10 +19,10 @@
   "orientations" : [
     {
       "image" : "singleIO/w.e.png",
-      "imagePosition" : [0, 0],
+      "direction" : "right",
 
       "spaceScan" : 0.1,
-      "anchors" : [  ]
+      "anchors" : [ ]
     }
   ],
 

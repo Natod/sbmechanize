@@ -76,9 +76,11 @@ function update(dt)
       local fromItems = world.containerItems(fromObject)
       -- #fromItems doesn't work here due to disconnected indices :(
       local lenFromItems = 0
-      for i,_ in pairs(fromItems) do 
-        lenFromItems = lenFromItems + 1 
-        fromSlotOffset = tonumber(i) - 1
+      if fromItems then
+        for i,_ in pairs(fromItems) do 
+          lenFromItems = lenFromItems + 1 
+          fromSlotOffset = tonumber(i) - 1
+        end
       end
       --make sure there are items in fromObj and that toObj is a container
       if lenFromItems > 0 and world.containerAvailable(toObject, {name = "copperbar"}) then
