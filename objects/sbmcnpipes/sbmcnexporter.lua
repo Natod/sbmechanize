@@ -134,7 +134,7 @@ function pipeRoute(doParticles)
       break
     end
     -- if it's loaded but empty clear output destination ID
-    if world.material(testPos, (storage.outputToBG and "backround" or "foreground")) == false then
+    if world.material(testPos, (storage.outputToBG and "backround" or "foreground")) ~= "sbmcnitempipe" then
       storage.outputContainerID = nil
     end
   end
