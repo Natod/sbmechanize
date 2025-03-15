@@ -1,0 +1,11 @@
+{
+  "itemName" : "sbmcnitempipematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "sbmcnitempipe.png",
+  "shortdescription" : "Item Pipe",
+  "description" : "A logistical item pipe, used to network between ^#299dd8;Importers^reset; and ^#d67575;Exporters^reset;.",
+
+  "materialId" : 5600
+}

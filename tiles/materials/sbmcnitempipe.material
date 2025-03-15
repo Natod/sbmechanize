@@ -1,0 +1,21 @@
+{
+  "materialId" : 5600,
+  "materialName" : "sbmcnitempipe",
+  "particleColor" : [140, 180, 255, 255],
+  "itemDrop" : "sbmcnitempipematerial",
+  "shortdescription" : "Item Pipe",
+  "description" : "A logistical item pipe, used to network between ^#299dd8;Importers^reset; and ^#d67575;Exporters^reset;.",
+  "footstepSound" : "/sfx/blocks/footstep_lightmetal.ogg",
+  "health" : 2,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/pipetemplate.config",
+  "renderParameters" : {
+    "texture" : "sbmcnitempipe.png",
+    "variants" : 1,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : true,
+    "zLevel" : 3380
+  }
+}

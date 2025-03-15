@@ -1,0 +1,33 @@
+{
+  "objectName" : "sbmcnexporter",
+  "colonyTags" : [],
+  "rarity" : "Common",
+  "description" : "^#d67575;Extracts^reset; items from the connected storage object and sends them along Item Pipes to an ^#299dd8;Importer^reset;.",
+  "shortdescription" : "Item Exporter",
+  "race" : "generic",
+  "category" : "storage",
+  "price" : 100,
+  "itemTransferCount" : 1,
+  "itemTransferTickCooldown" : 0,
+  "maxPipeLength" : 12,
+  "sbmcnMaterial" : "tungsten",
+  "animation" : "sbmcnexporter.animation",
+  "animationParts" : {
+    "switchState" : "singleIO/w.e.png"
+  },
+
+  "inventoryIcon" : "sbmcnitempipe1icon.png?hueshift=180",
+  "orientations" : [
+    {
+      "image" : "exporter/w.e.png",
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ ]
+    }
+  ],
+
+  "builder" : "/objects/sbmcnpipes/buildsbmcnexporter.lua",
+  "scripts" : [ "sbmcnexporter.lua" ]
+
+}

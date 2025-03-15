@@ -25,7 +25,15 @@ function update(dt, fireMode, shiftHeld)
   if fireMode == "primary" and fireMode ~= "alt" and not shiftHeld and not inUse then
     local _objAt = world.objectAt(activeItem.ownerAimPosition())
     if _objAt then
-      world.sendEntityMessage(_objAt, "sbmcnPipeWrench", "primary", false)
+      world.sendEntityMessage(_objAt, "sbmcnPipeWrench", fireMode, shiftHeld)
+    end
+    inUse = true
+  end
+
+  if fireMode == "primary" and fireMode ~= "alt" and shiftHeld and not inUse then
+    local _objAt = world.objectAt(activeItem.ownerAimPosition())
+    if _objAt then
+      world.sendEntityMessage(_objAt, "sbmcnPipeWrench", fireMode, shiftHeld)
     end
     inUse = true
   end
@@ -33,7 +41,7 @@ function update(dt, fireMode, shiftHeld)
   if fireMode == "alt" and fireMode ~= "primary" and not shiftHeld and not inUse then
     local _objAt = world.objectAt(activeItem.ownerAimPosition())
     if _objAt then
-      world.sendEntityMessage(_objAt, "sbmcnPipeWrench", "alt", false)
+      world.sendEntityMessage(_objAt, "sbmcnPipeWrench", fireMode, shiftHeld)
     end
     inUse = true
   end
