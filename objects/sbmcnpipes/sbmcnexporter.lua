@@ -87,7 +87,7 @@ function update(dt)
     _updateCounter = math.max(_updateCounter-1, 0)
   end
 
-  if storage.outputContainerID then sb.logWarn("Exporter: " .. storage.outputContainerID) end
+  --if storage.outputContainerID then sb.logWarn("Exporter: " .. storage.outputContainerID) end
   --[[
   if _counter >= transferCooldown then
     local fromSlotOffset = 0
@@ -151,9 +151,11 @@ function pipeRoute(doParticles)
       if obj then
         local outputID = world.getObjectParameter(obj, "outputContainerID")
         if outputID then
-          storage.outputContainerID = outputID
-          _break = true
-          break
+          if outputID ~= "nil" then
+            storage.outputContainerID = outputID
+            _break = true
+            break
+          end
         end
       end
 

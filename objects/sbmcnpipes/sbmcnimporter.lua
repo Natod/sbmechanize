@@ -25,7 +25,8 @@ function init()
   fromPositionOffset = offset[storage.fromIndex]
   toPositionOffset = offset[storage.toIndex]
   --pipe output storage
-  storage.outputContainerID = storage.outputContainerID or nil
+  storage.outputContainerID = storage.outputContainerID or "nil"
+  object.setConfigParameter("outputContainerID", storage.outputContainerID)
 
   animator.setAnimationState("switchState", dirs[storage.fromIndex] .. "." .. dirs[storage.toIndex])
   --itemMaxTransferCount = 5
@@ -88,12 +89,11 @@ function updateDest()
     -- check if it's storage
     if world.containerAvailable(obj, {name = "copperbar"}) then
       storage.outputContainerID = obj
-      object.setConfigParameter("outputContainerID", obj)
     else
-      storage.outputContainerID = nil
+      obj = "nil"
     end
-  else
-    storage.outputContainerID = nil
   end
+  storage.outputContainerID = obj
+  object.setConfigParameter("outputContainerID", storage.outputContainerID)
 end
 
