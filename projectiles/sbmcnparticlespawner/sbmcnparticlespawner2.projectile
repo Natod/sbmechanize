@@ -1,0 +1,26 @@
+{
+  "projectileName" : "sbmcnparticlespawner2",
+  "speed" : 0,
+  "physics" : "default",
+  "image" : "/utility/sbmcn/empty.png",
+
+  // min time to render the actionOnReap config
+  "timeToLive" : 0.0169,
+  
+  "damageKind" : "default",
+  "damageTeam" : { "type" : "ghostly" },
+  "clientEntityMode" : "ClientSlaveOnly",
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/sbmcnparticlespawner/particles2.config"
+    }
+  ],
+  "damagePoly" : [ 
+    [-0.01, -0.01], 
+    [0.01, -0.01], 
+    [0.01, 0.01], 
+    [-0.01, 0.01] 
+  ]
+
+}

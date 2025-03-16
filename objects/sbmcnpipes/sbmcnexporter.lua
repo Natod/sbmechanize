@@ -1,6 +1,7 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 
+local maxLength
 local itemMaxTransferCount
 local transferCooldown
 local _counter
@@ -18,6 +19,8 @@ function init()
   object.setInteractive(false)
   animator.setParticleEmitterBurstCount("bluePoof", 10)
   animator.setParticleEmitterBurstCount("redPoof", 10)
+  maxLength = config.getParameter("maxPipeLength", 12)
+  maxLength = 69
   itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1)
   transferCooldown = config.getParameter("itemTransferTickCooldown", 1)
   _counter = 0
@@ -124,52 +127,49 @@ end
 
 -- return entityID of destination container
 function pipeRoute(doParticles) 
-  sb.logWarn("pipeRoute run")
-  local testPos = object.position() --vec2.add(object.position(), toPositionOffset)
+  --sb.logWarn("pipeRoute run")
+  local testPos = object.position()
   local _testPos = testPos
   local testIndex = storage.toIndex
   local _testIndex = testIndex
   local _break = true
   local numIters = 0
-  -- one more iteration than maxPipeLength
-  for i=0, config.getParameter("maxPipeLength", 12) do
+  local clearOutputID = true
+  
+  for i=0, maxLength do
     
-    
-    --[[
-    -- if it's unloaded don't change status
-    if world.material(testPos, (storage.outputToBG and "backround" or "foreground")) == nil then
-      break
-    end
-    --]]
-
+    _testIndex = testIndex
     for j=0,2 do 
-      _testIndex = (testIndex + j - 1) % 4 + 1
+      _testIndex = (_testIndex + j - 1) % 4 + 1
       _testPos = vec2.add(testPos, offset[_testIndex])
       
       if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) == nil then
+        _break = true
         break
       end
       if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) ~= "sbmcnitempipe" then
-        --
+        clearOutputID = true
+        _break = true
       else
         testPos = _testPos
         testIndex = _testIndex
         if doParticles then
           world.spawnProjectile("sbmcnparticlespawner", vec2.add(testPos, {0.5,0.5}))
         end
+        clearOutputID = false
         _break = false
         break
       end
     end
     numIters = i
-    if _break then break end
-
-    --[[
     -- if it's loaded but empty clear output destination ID
-    if world.material(testPos, (storage.outputToBG and "backround" or "foreground")) ~= "sbmcnitempipe" then
+    if clearOutputID then 
       storage.outputContainerID = nil
     end
-    --]]
+    if not storage.outputContainerID then
+      world.spawnProjectile("sbmcnparticlespawner2", vec2.add(testPos, {0.5,0.5}))
+    end
+    if _break then break end
   end
-  sb.logWarn("Iters: " .. numIters)
+  --sb.logWarn("Iters: " .. numIters)
 end
