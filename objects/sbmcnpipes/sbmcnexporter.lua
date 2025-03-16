@@ -125,18 +125,51 @@ end
 -- return entityID of destination container
 function pipeRoute(doParticles) 
   sb.logWarn("pipeRoute run")
-  local testPos = object.position()
+  local testPos = object.position() --vec2.add(object.position(), toPositionOffset)
+  local _testPos = testPos
+  local testIndex = storage.toIndex
+  local _testIndex = testIndex
+  local _break = true
+  local numIters = 0
   -- one more iteration than maxPipeLength
   for i=0, config.getParameter("maxPipeLength", 12) do
     
+    
+    --[[
     -- if it's unloaded don't change status
     if world.material(testPos, (storage.outputToBG and "backround" or "foreground")) == nil then
       break
     end
+    --]]
+
+    for j=0,2 do 
+      _testIndex = (testIndex + j - 1) % 4 + 1
+      _testPos = vec2.add(testPos, offset[_testIndex])
+      
+      if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) == nil then
+        break
+      end
+      if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) ~= "sbmcnitempipe" then
+        --
+      else
+        testPos = _testPos
+        testIndex = _testIndex
+        if doParticles then
+          world.spawnProjectile("sbmcnparticlespawner", vec2.add(testPos, {0.5,0.5}))
+        end
+        _break = false
+        break
+      end
+    end
+    numIters = i
+    if _break then break end
+
+    --[[
     -- if it's loaded but empty clear output destination ID
     if world.material(testPos, (storage.outputToBG and "backround" or "foreground")) ~= "sbmcnitempipe" then
       storage.outputContainerID = nil
     end
+    --]]
   end
-  world.spawnProjectile("sbmcnparticlespawner", vec2.add(object.position(), vec2.add(toPositionOffset, {0.5,0.5})))
+  sb.logWarn("Iters: " .. numIters)
 end

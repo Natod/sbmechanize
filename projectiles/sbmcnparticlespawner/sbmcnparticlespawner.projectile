@@ -2,7 +2,7 @@
   "projectileName" : "sbmcnparticlespawner",
   "speed" : 0,
   "physics" : "default",
-  "image" : "/utility/empty.png",
+  "image" : "/utility/sbmcn/empty.png",
 
   // min time to render the actionOnReap config
   "timeToLive" : 0.0169,
