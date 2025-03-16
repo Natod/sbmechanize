@@ -5,6 +5,7 @@ local maxLength
 local itemMaxTransferCount
 local transferCooldown
 local _counter
+local _updateCounter
 local offset = {
   {-1,0}, --left  / w
   {0,1},  --up    / n
@@ -14,6 +15,7 @@ local offset = {
 local dirs = { "w", "n", "e", "s" }
 local fromPositionOffset
 local toPositionOffset
+local pipeCheckTime
 
 function init()
   object.setInteractive(false)
@@ -63,7 +65,7 @@ function init()
       animator.burstParticleEmitter("bluePoof")
 
     elseif input == "primary" and shift then
-      storage.outputContainerID = pipeRoute(true) or storage.outputContainerID
+      -- storage.outputContainerID = pipeRoute(true) or storage.outputContainerID
 
     elseif input == "alt" and shift then
       --
@@ -71,6 +73,7 @@ function init()
     _fromDir = dirs[storage.fromIndex]
     _toDir = dirs[storage.toIndex]
     animator.setAnimationState("switchState", _fromDir .. "." .. _toDir )
+    storage.outputContainerID = pipeRoute(true) or storage.outputContainerID
 
   end)
 
@@ -84,6 +87,7 @@ function update(dt)
     _updateCounter = math.max(_updateCounter-1, 0)
   end
 
+  if storage.outputContainerID then sb.logWarn("Exporter: " .. storage.outputContainerID) end
   --[[
   if _counter >= transferCooldown then
     local fromSlotOffset = 0
@@ -143,6 +147,16 @@ function pipeRoute(doParticles)
       _testIndex = (_testIndex + j - 1) % 4 + 1
       _testPos = vec2.add(testPos, offset[_testIndex])
       
+      local obj = world.objectAt(_testPos)
+      if obj then
+        local outputID = world.getObjectParameter(obj, "outputContainerID")
+        if outputID then
+          storage.outputContainerID = outputID
+          _break = true
+          break
+        end
+      end
+
       if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) == nil then
         _break = true
         break

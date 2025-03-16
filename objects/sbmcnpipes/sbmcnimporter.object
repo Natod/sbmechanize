@@ -1,0 +1,29 @@
+{
+  "objectName" : "sbmcnimporter",
+  "colonyTags" : [],
+  "rarity" : "Common",
+  "description" : "^#299dd8;Inserts^reset; items to the connected storage object. Items can be sent along Item Pipes via an ^#d67575;Exporter^reset;.",
+  "shortdescription" : "Item Importer",
+  "race" : "generic",
+  "category" : "storage",
+  "price" : 100,
+  "animation" : "sbmcnimporter.animation",
+  "animationParts" : {
+    "switchState" : "singleIO/w.e.png"
+  },
+
+  "inventoryIcon" : "sbmcnitempipe1icon.png?hueshift=90",
+  "orientations" : [
+    {
+      "image" : "importer/w.e.png",
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ ]
+    }
+  ],
+
+  //"builder" : "/objects/sbmcnpipes/buildsbmcnimporter.lua",
+  "scripts" : [ "sbmcnimporter.lua" ]
+
+}
