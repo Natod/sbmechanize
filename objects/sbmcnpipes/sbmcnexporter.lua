@@ -88,38 +88,40 @@ function update(dt)
   end
 
   --if storage.outputContainerID then sb.logWarn("Exporter: " .. storage.outputContainerID) end
-  --[[
+  
   if _counter >= transferCooldown then
-    local fromSlotOffset = 0
-    local fromObject = world.objectAt(vec2.add(entity.position(),fromPositionOffset))
-    local toObject = world.objectAt(vec2.add(entity.position(),toPositionOffset))
-    
-    --null check for fromObj and toObj
-    if fromObject and toObject then
-      local fromItems = world.containerItems(fromObject)
-      -- #fromItems doesn't work here due to disconnected indices :(
-      local lenFromItems = 0
-      if fromItems then
-        for i,_ in pairs(fromItems) do 
-          lenFromItems = lenFromItems + 1 
-          fromSlotOffset = tonumber(i) - 1
+    if storage.outputContainerID then
+      local fromSlotOffset = 0
+      local fromObject = world.objectAt(vec2.add(entity.position(),fromPositionOffset))
+      local toObject = storage.outputContainerID
+      
+      --null check for fromObj and toObj
+      if fromObject and toObject then
+        local fromItems = world.containerItems(fromObject)
+        -- #fromItems doesn't work here due to disconnected indices :(
+        local lenFromItems = 0
+        if fromItems then
+          for i,_ in pairs(fromItems) do 
+            lenFromItems = lenFromItems + 1 
+            fromSlotOffset = tonumber(i) - 1
+          end
         end
-      end
-      --make sure there are items in fromObj and that toObj is a container
-      if lenFromItems > 0 and world.containerAvailable(toObject, {name = "copperbar"}) then
-        --fromSlotOffset = fromItems[1]
-        --sb.logWarn(sb.print(fromItems))
-        local itemToTransfer = world.containerItemAt(fromObject, fromSlotOffset)
-        local itemTransferCount = 1
-        if itemToTransfer then 
-          itemTransferCount = math.min(itemToTransfer.count, itemMaxTransferCount) 
-          itemToTransfer.count = itemTransferCount
+        --make sure there are items in fromObj and that toObj is a container
+        if lenFromItems > 0 and world.containerAvailable(toObject, {name = "copperbar"}) then
+          --fromSlotOffset = fromItems[1]
+          --sb.logWarn(sb.print(fromItems))
+          local itemToTransfer = world.containerItemAt(fromObject, fromSlotOffset)
+          local itemTransferCount = 1
+          if itemToTransfer then 
+            itemTransferCount = math.min(itemToTransfer.count, itemMaxTransferCount) 
+            itemToTransfer.count = itemTransferCount
+          end
+          local leftovers = world.containerAddItems(toObject, itemToTransfer)
+          if leftovers == nil then
+            world.containerConsumeAt(fromObject, fromSlotOffset, itemTransferCount)
+          end
+          _counter = 0
         end
-        local leftovers = world.containerAddItems(toObject, itemToTransfer)
-        if leftovers == nil then
-          world.containerConsumeAt(fromObject, fromSlotOffset, itemTransferCount)
-        end
-        _counter = 0
       end
     end
   else
