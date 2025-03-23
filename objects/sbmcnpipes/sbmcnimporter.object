@@ -9,13 +9,13 @@
   "price" : 100,
   "animation" : "sbmcnimporter.animation",
   "animationParts" : {
-    "switchState" : "singleIO/w.e.png"
+    "switchState" : "importer/w.png"
   },
 
-  "inventoryIcon" : "sbmcnitempipe1icon.png?hueshift=90",
+  "inventoryIcon" : "importer/icon.png",
   "orientations" : [
     {
-      "image" : "importer/w.e.png",
+      "image" : "importer/w.png",
       "direction" : "right",
 
       "spaceScan" : 0.1,

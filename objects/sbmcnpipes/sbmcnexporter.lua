@@ -30,39 +30,32 @@ function init()
   _updateCounter = 0
   -- pipe direction storage
   storage.fromIndex = storage.fromIndex or 1
-  storage.toIndex = storage.toIndex or 3
+  storage.toIndex = storage.toIndex or ((storage.fromIndex+1) % 4)+1
   fromPositionOffset = offset[storage.fromIndex]
   toPositionOffset = offset[storage.toIndex]
   --pipe output storage
   storage.outputContainerID = storage.outputContainerID or nil
-  storage.outputToBG = storage.outputToBG or true
+  storage.outputToBG = storage.outputToBG or false
 
-  animator.setAnimationState("switchState", dirs[storage.fromIndex] .. "." .. dirs[storage.toIndex])
+  setAnimState(dirs[storage.fromIndex])
   --itemMaxTransferCount = 5
   --transferCooldown = 50
   
 
   message.setHandler("sbmcnPipeWrench", function(messageName, isLocalEntity, input, shift)
-    -- TODO - make it spawn particles that have random position and starting velocity but move up and get slower
     local _fromDir = nil
     local _toDir = nil
     if input == "primary" and not shift then
       --cycle thru from offsets
       storage.fromIndex = storage.fromIndex % #offset + 1
-      if storage.fromIndex == storage.toIndex then
-        storage.fromIndex = storage.fromIndex % #offset + 1
-      end
+      storage.toIndex = ((storage.fromIndex+1) % 4)+1
       fromPositionOffset = offset[storage.fromIndex]
+      toPositionOffset = offset[storage.toIndex]
       animator.burstParticleEmitter("redPoof")
 
     elseif input == "alt" and not shift then
-      --cycle thru to offsets
-      storage.toIndex = storage.toIndex % #offset + 1
-      if storage.fromIndex == storage.toIndex then
-        storage.toIndex = storage.toIndex % #offset + 1
-      end
-      toPositionOffset = offset[storage.toIndex]
-      animator.burstParticleEmitter("bluePoof")
+      --switch output to fg or bg
+      storage.outputToBG = not storage.outputToBG
 
     elseif input == "primary" and shift then
       -- storage.outputContainerID = pipeRoute(true) or storage.outputContainerID
@@ -72,8 +65,9 @@ function init()
     end
     _fromDir = dirs[storage.fromIndex]
     _toDir = dirs[storage.toIndex]
-    animator.setAnimationState("switchState", _fromDir .. "." .. _toDir )
-    storage.outputContainerID = pipeRoute(true) or storage.outputContainerID
+    setAnimState(_fromDir)
+    pipeRoute(true)
+    sb.logWarn(sb.print(storage.outputContainerID))
 
   end)
 
@@ -81,7 +75,7 @@ end
 
 function update(dt)
   if _updateCounter <= 0 then 
-    storage.outputContainerID = pipeRoute(false) or storage.outputContainerID
+    pipeRoute(false)
     _updateCounter = pipeCheckTime
   else
     _updateCounter = math.max(_updateCounter-1, 0)
@@ -131,7 +125,7 @@ function update(dt)
   --sb.logWarn("itemToTransfer: " .. sb.print(itemToTransfer))
 end
 
--- return entityID of destination container
+-- set entityID of destination container
 function pipeRoute(doParticles) 
   --sb.logWarn("pipeRoute run")
   local testPos = object.position()
@@ -139,9 +133,10 @@ function pipeRoute(doParticles)
   local testIndex = storage.toIndex
   local _testIndex = testIndex
   local _break = true
-  local numIters = 0
+  --local numIters = 0storage.outputContai
   local clearOutputID = true
   
+  local outputLayer = storage.outputToBG and "background" or "foreground"
   for i=0, maxLength do
     
     _testIndex = testIndex
@@ -161,11 +156,12 @@ function pipeRoute(doParticles)
         end
       end
 
-      if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) == nil then
+
+      if world.material(_testPos, outputLayer) == nil then
         _break = true
         break
       end
-      if world.material(_testPos, (storage.outputToBG and "background" or "foreground")) ~= "sbmcnitempipe" then
+      if world.material(_testPos, outputLayer) ~= "sbmcnitempipe" then
         clearOutputID = true
         _break = true
       else
@@ -179,7 +175,7 @@ function pipeRoute(doParticles)
         break
       end
     end
-    numIters = i
+    --numIters = i
     -- if it's loaded but empty clear output destination ID
     if clearOutputID then 
       storage.outputContainerID = nil
@@ -190,4 +186,9 @@ function pipeRoute(doParticles)
     if _break then break end
   end
   --sb.logWarn("Iters: " .. numIters)
+end
+
+function setAnimState(dir)
+  dir = dir .. (storage.outputToBG and ".b" or "")
+  animator.setAnimationState("switchState", dir )
 end

@@ -2,20 +2,16 @@
   "animatedParts" : {
     "stateTypes" : {
       "switchState" : {
-        "default" : "w.e",
+        "default" : "w",
         "states" : {
-          "e.n" : {},
-          "e.s" : {},
-          "e.w" : {},
-          "n.e" : {},
-          "n.s" : {},
-          "n.w" : {},
-          "s.e" : {},
-          "s.n" : {},
-          "s.w" : {},
-          "w.e" : {},
-          "w.n" : {},
-          "w.s" : {}
+          "w" : {},
+          "e" : {},
+          "n" : {},
+          "s" : {},
+          "w.b" : {},
+          "e.b" : {},
+          "n.b" : {},
+          "s.b" : {}
         }
       }
     },
@@ -28,64 +24,44 @@
 
         "partStates" : {
           "switchState" : {
-            "e.n" : {
+            "w" : {
               "properties" : {
-                "image" : "exporter/e.n.png"
+                "image" : "exporter/w.png"
               }
             },
-            "e.s" : {
+            "e" : {
               "properties" : {
-                "image" : "exporter/e.s.png"
+                "image" : "exporter/w.png?flipx"
               }
             },
-            "e.w" : {
+            "n" : {
               "properties" : {
-                "image" : "exporter/w.e.png?flipx"
+                "image" : "exporter/n.png"
               }
             },
-            "n.e" : {
+            "s" : {
               "properties" : {
-                "image" : "exporter/n.e.png"
+                "image" : "exporter/n.png?flipy"
               }
             },
-            "n.s" : {
+            "w.b" : {
               "properties" : {
-                "image" : "exporter/n.s.png"
+                "image" : "exporter/w.b.png"
               }
             },
-            "n.w" : {
+            "e.b" : {
               "properties" : {
-                "image" : "exporter/n.w.png"
+                "image" : "exporter/w.b.png?flipx"
               }
             },
-            "s.e" : {
+            "n.b" : {
               "properties" : {
-                "image" : "exporter/s.e.png"
+                "image" : "exporter/n.b.png"
               }
             },
-            "s.n" : {
+            "s.b" : {
               "properties" : {
-                "image" : "exporter/n.s.png?flipy"
-              }
-            },
-            "s.w" : {
-              "properties" : {
-                "image" : "exporter/s.w.png"
-              }
-            },
-            "w.e" : {
-              "properties" : {
-                "image" : "exporter/w.e.png"
-              }
-            },
-            "w.n" : {
-              "properties" : {
-                "image" : "exporter/w.n.png"
-              }
-            },
-            "w.s" : {
-              "properties" : {
-                "image" : "exporter/w.s.png"
+                "image" : "exporter/n.b.png?flipy"
               }
             }
           }
@@ -112,7 +88,7 @@
             "finalVelocity" : [0.0, 0],
             "approach" : [0, 6],
             "timeToLive" : 0.4,
-            "layer" : "middle",
+            "layer" : "front",
             "variance" : {
               "initialVelocity" : [0, 0.8],
               "position" : [0.35, 0.35],
@@ -139,7 +115,7 @@
             "finalVelocity" : [0.0, 0],
             "approach" : [0, 6],
             "timeToLive" : 0.4,
-            "layer" : "middle",
+            "layer" : "front",
             "variance" : {
               "initialVelocity" : [0, 0.8],
               "position" : [0.35, 0.35],

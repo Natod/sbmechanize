@@ -16,10 +16,10 @@
     "switchState" : "singleIO/w.e.png"
   },
 
-  "inventoryIcon" : "sbmcnitempipe1icon.png?hueshift=180",
+  "inventoryIcon" : "exporter/icon.png",
   "orientations" : [
     {
-      "image" : "exporter/w.e.png",
+      "image" : "exporter/w.png",
       "direction" : "right",
 
       "spaceScan" : 0.1,
