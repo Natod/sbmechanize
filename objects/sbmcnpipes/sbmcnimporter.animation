@@ -32,12 +32,12 @@
             },
             "n" : {
               "properties" : {
-                "image" : "importer/n.png"
+                "image" : "importer/n.png?flipx"
               }
             },
             "s" : {
               "properties" : {
-                "image" : "importer/n.png?flipy"
+                "image" : "importer/n.png?flipy?flipx"
               }
             }
           }

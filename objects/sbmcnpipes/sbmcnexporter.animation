@@ -36,12 +36,12 @@
             },
             "n" : {
               "properties" : {
-                "image" : "exporter/n.png"
+                "image" : "exporter/n.png?flipx"
               }
             },
             "s" : {
               "properties" : {
-                "image" : "exporter/n.png?flipy"
+                "image" : "exporter/n.png?flipxy"
               }
             },
             "w.b" : {
@@ -56,12 +56,12 @@
             },
             "n.b" : {
               "properties" : {
-                "image" : "exporter/n.b.png"
+                "image" : "exporter/n.b.png?flipx"
               }
             },
             "s.b" : {
               "properties" : {
-                "image" : "exporter/n.b.png?flipy"
+                "image" : "exporter/n.b.png?flipy?flipx"
               }
             }
           }
