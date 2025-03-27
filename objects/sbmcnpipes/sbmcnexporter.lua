@@ -46,6 +46,9 @@ function init()
     local _fromDir = nil
     local _toDir = nil
     if input == "primary" and not shift then
+      --
+
+    elseif input == "alt" and not shift then
       --cycle thru from offsets
       storage.fromIndex = storage.fromIndex % #offset + 1
       storage.toIndex = ((storage.fromIndex+1) % 4)+1
@@ -53,21 +56,18 @@ function init()
       toPositionOffset = offset[storage.toIndex]
       animator.burstParticleEmitter("redPoof")
 
-    elseif input == "alt" and not shift then
-      --switch output to fg or bg
-      storage.outputToBG = not storage.outputToBG
-
     elseif input == "primary" and shift then
-      -- storage.outputContainerID = pipeRoute(true) or storage.outputContainerID
+      --
 
     elseif input == "alt" and shift then
-      --
+      --switch output to fg or bg
+      storage.outputToBG = not storage.outputToBG
     end
     _fromDir = dirs[storage.fromIndex]
     _toDir = dirs[storage.toIndex]
     setAnimState(_fromDir)
     pipeRoute(true)
-    sb.logWarn(sb.print(storage.outputContainerID))
+    --sb.logWarn("Entity " .. entity.id() .. " outputs to " .. sb.print(storage.outputContainerID))
 
   end)
 

@@ -2,20 +2,12 @@
   "animatedParts" : {
     "stateTypes" : {
       "switchState" : {
-        "default" : "w.e",
+        "default" : "w",
         "states" : {
-          "e.n" : {},
-          "e.s" : {},
-          "e.w" : {},
-          "n.e" : {},
-          "n.s" : {},
-          "n.w" : {},
-          "s.e" : {},
-          "s.n" : {},
-          "s.w" : {},
-          "w.e" : {},
-          "w.n" : {},
-          "w.s" : {}
+          "w" : {},
+          "e" : {},
+          "n" : {},
+          "s" : {}
         }
       }
     },
@@ -28,64 +20,24 @@
 
         "partStates" : {
           "switchState" : {
-            "e.n" : {
+            "w" : {
               "properties" : {
-                "image" : "importer/e.n.png"
+                "image" : "importer/w.png"
               }
             },
-            "e.s" : {
+            "e" : {
               "properties" : {
-                "image" : "importer/e.s.png"
+                "image" : "importer/w.png?flipx"
               }
             },
-            "e.w" : {
+            "n" : {
               "properties" : {
-                "image" : "importer/w.e.png?flipx"
+                "image" : "importer/n.png"
               }
             },
-            "n.e" : {
+            "s" : {
               "properties" : {
-                "image" : "importer/n.e.png"
-              }
-            },
-            "n.s" : {
-              "properties" : {
-                "image" : "importer/n.s.png"
-              }
-            },
-            "n.w" : {
-              "properties" : {
-                "image" : "importer/n.w.png"
-              }
-            },
-            "s.e" : {
-              "properties" : {
-                "image" : "importer/s.e.png"
-              }
-            },
-            "s.n" : {
-              "properties" : {
-                "image" : "importer/n.s.png?flipy"
-              }
-            },
-            "s.w" : {
-              "properties" : {
-                "image" : "importer/s.w.png"
-              }
-            },
-            "w.e" : {
-              "properties" : {
-                "image" : "importer/w.e.png"
-              }
-            },
-            "w.n" : {
-              "properties" : {
-                "image" : "importer/w.n.png"
-              }
-            },
-            "w.s" : {
-              "properties" : {
-                "image" : "importer/w.s.png"
+                "image" : "importer/n.png?flipy"
               }
             }
           }

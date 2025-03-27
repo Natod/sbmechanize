@@ -28,42 +28,32 @@ function init()
   storage.outputContainerID = storage.outputContainerID or "nil"
   object.setConfigParameter("outputContainerID", storage.outputContainerID)
 
-  animator.setAnimationState("switchState", dirs[storage.fromIndex] .. "." .. dirs[storage.toIndex])
-  --itemMaxTransferCount = 5
-  --transferCooldown = 50
+  animator.setAnimationState("switchState", dirs[storage.fromIndex] )
   
 
   message.setHandler("sbmcnPipeWrench", function(messageName, isLocalEntity, input, shift)
-    -- TODO - make it spawn particles that have random position and starting velocity but move up and get slower
     local _fromDir = nil
     local _toDir = nil
     if input == "primary" and not shift then
-      --cycle thru from offsets
-      storage.fromIndex = storage.fromIndex % #offset + 1
-      if storage.fromIndex == storage.toIndex then
-        storage.fromIndex = storage.fromIndex % #offset + 1
-      end
-      fromPositionOffset = offset[storage.fromIndex]
-      animator.burstParticleEmitter("redPoof")
+      --
 
     elseif input == "alt" and not shift then
-      --cycle thru to offsets
-      storage.toIndex = storage.toIndex % #offset + 1
-      if storage.fromIndex == storage.toIndex then
-        storage.toIndex = storage.toIndex % #offset + 1
-      end
+      --cycle thru from offsets
+      storage.fromIndex = storage.fromIndex % #offset + 1
+      storage.toIndex = ((storage.fromIndex+1) % 4)+1
+      fromPositionOffset = offset[storage.fromIndex]
       toPositionOffset = offset[storage.toIndex]
       animator.burstParticleEmitter("bluePoof")
 
     elseif input == "primary" and shift then
-      -- updateDest()
+      --
 
     elseif input == "alt" and shift then
       --
     end
     _fromDir = dirs[storage.fromIndex]
     _toDir = dirs[storage.toIndex]
-    animator.setAnimationState("switchState", _fromDir .. "." .. _toDir )
+    animator.setAnimationState("switchState", _fromDir )
     updateDest()
 
   end)
