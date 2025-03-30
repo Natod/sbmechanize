@@ -1,0 +1,29 @@
+{
+  "objectName" : "smbcnmachine1",
+  "colonyTags" : [],
+  "rarity" : "Common",
+  "description" : "-- TODO --",
+  "shortdescription" : "sbmcn machine 1",
+  "race" : "generic",
+  "category" : "crafting",
+  "price" : 200,
+  "objectType" : "container",
+
+  "inventoryIcon" : "machine1icon.png",
+  "orientations" : [
+    {
+      "dualImage" : "machine1.png",
+      "imagePosition" : [-16, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "uiConfig" : "/interface/objectcrafting/smbcnmachine1.config",
+  "slotCount" : 7,
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600,
+
+  "scripts" : [ "smbcnmachine1.lua" ]
+}
