@@ -26,7 +26,7 @@ function onInteraction(interactSource)
     "ShowPopup", 
     {
       title = "Activation Failed!", 
-      message = "^red;EPIC FAILURE^reset;" 
+      message = "^red;EPIC FAILURE^reset;", 
       sound = "/sfx/cinematics/ship_upgrade/captain_gripe.ogg"
     } 
   }

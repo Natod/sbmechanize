@@ -1,0 +1,21 @@
+{
+  "itemName" : "sbmcnliqdisplay",
+  "price" : 0,
+  "maxStack" : 4294967295, //4294967295
+  "rarity" : "Common",
+  "category" : "liquid",
+  "tooltipKind" : "sbmcnliquid",
+  "inventoryIcon" : "/utility/sbmcn/empty.png",
+  "description" : "if ur seeing this ingame an error has occured :(",
+  "shortdescription" : "default liquid",
+  "itemTags" : [ "sbmcn", "sbmcnliquid", "reagent" ],
+  "builder" : "/items/sbmcnliqdisplay/sbmcnliqdisplaybuild.lua",
+  "sbmcnLiqData":{
+    "liqType" : "testLiquid",
+    "count" : 0,
+    "temperature": 299,
+    "frame" : 0,
+    "frameCount" : 1
+  }
+  
+}

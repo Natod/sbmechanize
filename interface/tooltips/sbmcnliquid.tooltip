@@ -1,0 +1,15 @@
+{
+  "background" : {
+    "type" : "background",
+    "fileHeader" : "/interface/sbmcn-common/tooltiphead.png",
+    "fileBody" : "/interface/sbmcn-common/tooltipbodylarge.png",
+    "fileFooter" : ""
+  },
+  "descriptionLabel" : {
+    "type" : "label",
+    "position" : [10,24],
+    "hAnchor" : "left",
+    "vAnchor" : "top",
+    "wrapWidth" : 98
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "objectName" : "smbcnmachine1",
+  "objectName" : "sbmcnmachine1",
   "colonyTags" : [],
   "rarity" : "Common",
   "description" : "-- TODO --",
@@ -20,10 +20,10 @@
     }
   ],
 
-  "uiConfig" : "/interface/objectcrafting/smbcnmachine1.config",
+  "uiConfig" : "/interface/sbmcnmachine/sbmcnmachine1.config",
   "slotCount" : 7,
   "frameCooldown" : 5,
   "autoCloseCooldown" : 3600,
 
-  "scripts" : [ "smbcnmachine1.lua" ]
+  "scripts" : [ "sbmcnmachine1.lua" ]
 }
