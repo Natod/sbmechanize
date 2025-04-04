@@ -1,0 +1,26 @@
+{
+  "sbmcnSettings" : {
+    // number of ticks between automatic pipe checks
+    // lower values lead to smoother experience but are more resource intensive
+    "pipeCheckTime" : 200,
+
+    // makes all pipes transfer items with greater tick spacing but proportionally greater max stack transfer
+    // intended to boost performance by doing fewer world operations
+    // **preserves pipe transfer rate
+    // **must be positive integer
+    "pipeStackMultiplier" : 1,
+
+    // whether item pipes are active when placed
+    "pipesStartActive" : true, 
+
+    // whether machines are active when placed
+    "machinesStartActive" : true, 
+
+    // the default signal processing mode of machines' on/off
+    // Accepts:
+    // "default", "inverted", "always", "never"
+    "defaultMachineWireMode" : "always"
+
+
+  }
+}

@@ -17,7 +17,7 @@ function init()
   animator.setParticleEmitterBurstCount("bluePoof", 10)
   animator.setParticleEmitterBurstCount("redPoof", 10)
   _counter = 0
-  pipeCheckTime = root.assetJson("/utility/sbmcnutil.config").sbmcnSettings.exporterPipeCheckTime
+  pipeCheckTime = root.assetJson("/settings/sbmcn.settings").sbmcnSettings.pipeCheckTime
   _updateCounter = 0
   -- pipe direction storage
   storage.fromIndex = storage.fromIndex or 1

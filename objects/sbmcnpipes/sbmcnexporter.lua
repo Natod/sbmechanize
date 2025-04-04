@@ -23,10 +23,11 @@ function init()
   animator.setParticleEmitterBurstCount("redPoof", 10)
   maxLength = config.getParameter("maxPipeLength", 12)
   maxLength = 69
-  itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1)
-  transferCooldown = config.getParameter("itemTransferTickCooldown", 1)
+  local pipeStackMult = root.assetJson("/settings/sbmcn.settings").sbmcnSettings.pipeStackMultiplier
+  itemMaxTransferCount = config.getParameter("itemMaxTransferCount", 1) * pipeStackMult
+  transferCooldown = (config.getParameter("itemTransferTickCooldown", 1) - 1) * pipeStackMult + 1
   _counter = 0
-  pipeCheckTime = root.assetJson("/utility/sbmcnutil.config").sbmcnSettings.exporterPipeCheckTime
+  pipeCheckTime = root.assetJson("/settings/sbmcn.settings").sbmcnSettings.pipeCheckTime
   _updateCounter = 0
   -- pipe direction storage
   storage.fromIndex = storage.fromIndex or 1
