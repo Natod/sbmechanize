@@ -4,12 +4,13 @@ require "/scripts/interp.lua"
 
 local liqData = {
     liqType = "testLiquid",
-    count = 200, 
+    count = 2558, 
     temperature = 398
 }
 local counter
 --the config for the current liquid
 local liqConfig
+local liqMax = 2000
 
 function init()
     liqConfig = root.assetJson("/utility/sbmcnutil.config").sbmcnLiquidConfig.liquidTypes[liqData.liqType]
@@ -29,6 +30,8 @@ function update(dt)
         count = 1
     })
     widget.setItemSlotItem("outLiq1", liqItem1)
+    local descCount = ((liqData.count < 1000) and (math.min(liqData.count, liqMax) .. "mL\n" ) or (math.min(liqData.count, liqMax)/1000 .. "L\n"))
+    widget.setText("lblOutLiq1", descCount)
     --]]
     --widget.setImage("outLiq1", liqConfig.texture)
 end

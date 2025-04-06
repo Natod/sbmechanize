@@ -1,8 +1,8 @@
 {
   "background" : {
     "type" : "background",
-    "fileHeader" : "/interface/sbmcn-common/tooltiphead.png",
-    "fileBody" : "/interface/sbmcn-common/tooltipbodylarge.png",
+    "fileHeader" : "/interface/sbmcn-common/tooltipheaddark.png",
+    "fileBody" : "/interface/sbmcn-common/tooltipbodylargedark.png",
     "fileFooter" : ""
   },
   "descriptionLabel" : {

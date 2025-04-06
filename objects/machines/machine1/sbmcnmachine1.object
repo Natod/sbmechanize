@@ -25,5 +25,16 @@
   "frameCooldown" : 5,
   "autoCloseCooldown" : 3600,
 
+  "sbmcnConfig" : {
+    "inLiqSlotCount" : 0,
+    "inLiqMaxCap" : 2000,
+    "outLiqSlotCount" : 1,
+    "outLiqMaxCap" : 2000
+  },
+  "sbmcnData" : {
+    "inLiqData" : {},
+    "outLiqData" : {}
+  },
+
   "scripts" : [ "sbmcnmachine1.lua" ]
 }

@@ -18,7 +18,9 @@ function build(directory, config, parameters, level, seed)
   local shortdesc = liqConfig.fname
   parameters.shortdescription = shortdesc
 
-  local desc = liqData.count .. "mL\n" .. (liqData.temperature or liqConfig.defaultTemp) .. "K\n" .. liqConfig.desc
+  local descCount = ((liqData.count < 1000) and (liqData.count .. "mL\n" ) or (liqData.count/1000 .. "L\n"))
+  local desc = descCount .. (liqData.temperature or liqConfig.defaultTemp) .. "K\n" .. liqConfig.desc
+
   parameters.description = desc
 
   parameters.inventoryIcon = liqConfig.texture .. ":" .. liqData.frame
