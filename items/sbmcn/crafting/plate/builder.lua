@@ -12,8 +12,9 @@ function build(directory, config, parameters, level, seed)
 
   local matType = configParameter("sbmcnData", {materialType = "default"}).materialType
   if matType == "default" then return config, parameters end
-  matConfig = root.assetJson("/utility/sbmcnutil.config").sbmcnMaterialConfig.generic[matType] or {fname = "ERROR"}
-
+  matConfig = root.assetJson("/utility/sbmcnutil.config").sbmcnMaterialConfig.generic[matType] --or {fname = "ERROR"}
+  if matType == nil then return end
+  
   parameters.inventoryIcon = matType .. ".png"
   local getSuffix = function(m)
     if m == "rubber" then return "Sheet" end

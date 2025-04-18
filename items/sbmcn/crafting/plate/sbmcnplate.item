@@ -3,7 +3,7 @@
   "price" : 10,
   //"maxStack" : 4294967295,
   "rarity" : "Common",
-  "category" : "liquid",
+  "category" : "craftingMaterial",
   //"tooltipKind" : "sbmcnliquid",
   "inventoryIcon" : "/utility/sbmcn/empty.png",
   "description" : "",
