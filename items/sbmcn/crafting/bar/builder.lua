@@ -14,17 +14,10 @@ function build(directory, config, parameters, level, seed)
   if matType == "default" then return config, parameters end
   matConfig = root.assetJson("/utility/sbmcnutil.config").sbmcnMaterialConfig.generic[matType] --or {fname = "ERROR"}
   if matType == nil then return end
-
+  
   parameters.inventoryIcon = matType .. ".png"
-  local getSuffix = function(m)
-    if m == "rubber" then return "Sheet" end
-    if m == "glass" then return "Pane" end
-    if m == "wood" then return "Plank" end
-    return "Plate"
-  end
-  local fnameSuffix = getSuffix(matType)
-  parameters.shortdescription = matConfig.fname .. " " .. fnameSuffix
-  local basePrice = 10
+  parameters.shortdescription = matConfig.fname .. " Bar"
+  local basePrice = 8
   local priceMult = matConfig.priceMult or 1
   parameters.price = math.floor(basePrice * priceMult)
   local rarity = matConfig.rarity or "Common"

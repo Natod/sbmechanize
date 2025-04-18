@@ -1,0 +1,16 @@
+{
+  "itemName" : "sbmcnbar",
+  "price" : 10,
+  //"maxStack" : 4294967295,
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  //"tooltipKind" : "sbmcnliquid",
+  "inventoryIcon" : "/utility/sbmcn/empty.png",
+  "description" : "",
+  "shortdescription" : "Default Bar",
+  "itemTags" : [ "sbmcn", "sbmcnmetal", "reagent", "sbmcnmetalbar" ],
+  "builder" : "/items/sbmcn/crafting/bar/builder.lua",
+  "sbmcnData" : {
+    "materialType" : "default"
+  }  
+}

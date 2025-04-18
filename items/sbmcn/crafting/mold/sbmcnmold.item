@@ -1,0 +1,15 @@
+{
+  "itemName" : "sbmcnmold",
+  "price" : 20,
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  //"tooltipKind" : "sbmcnliquid",
+  "inventoryIcon" : "/utility/sbmcn/empty.png",
+  "description" : "",
+  "shortdescription" : "Default Mold",
+  "itemTags" : [ "sbmcn", "reagent", "sbmcnmold" ],
+  "builder" : "/items/sbmcn/crafting/mold/builder.lua",
+  "sbmcnData" : {
+    "moldType" : "default"
+  }  
+}
