@@ -1,0 +1,16 @@
+{
+  "itemName" : "sbmcnplate",
+  "price" : 10,
+  //"maxStack" : 4294967295,
+  "rarity" : "Common",
+  "category" : "liquid",
+  //"tooltipKind" : "sbmcnliquid",
+  "inventoryIcon" : "/utility/sbmcn/empty.png",
+  "description" : "",
+  "shortdescription" : "Default Plate",
+  "itemTags" : [ "sbmcn", "sbmcnplate", "reagent" ],
+  "builder" : "/items/sbmcn/crafting/plate/builder.lua",
+  "sbmcnData" : {
+    "materialType" : "default"
+  }  
+}
